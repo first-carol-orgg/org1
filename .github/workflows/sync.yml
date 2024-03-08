@@ -32,6 +32,7 @@ jobs:
         target_repo_token: ${{ secrets.GITHUB_TOKEN }}
         upstream_sync_branch: main
         upstream_sync_repo: second-carol-orgg/org1
+        target_branch_push_args: -u origin sync-branch-${{ github.sha }}
 
         # Set test_mode true to run tests instead of the true action!!
       

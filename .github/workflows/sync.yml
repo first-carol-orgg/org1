@@ -39,7 +39,9 @@ jobs:
     # Step 3: Display a sample message based on the sync output var 'has_new_commits'
     - name: New commits found
       if: steps.sync.outputs.has_new_commits == 'true'
-      run: echo "New commits were found to sync."
+      run: |
+        echo "New commits were found to sync."
+        git checkout -b sync-branch-${{ github.sha }}
     
     - name: No new commits
       if: steps.sync.outputs.has_new_commits == 'false'
